@@ -1,5 +1,7 @@
 /******************************************************************************
  *
+ *  Copyright (c) 2013, The Linux Foundation. All rights reserved.
+ *  Not a Contribution.
  *  Copyright (C) 2009-2012 Broadcom Corporation
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
@@ -236,7 +238,23 @@ bt_status_t btif_storage_add_hid_device_info(bt_bdaddr_t *remote_bd_addr,
                                                     UINT16 attr_mask, UINT8 sub_class,
                                                     UINT8 app_id, UINT16 vendor_id,
                                                     UINT16 product_id, UINT16 version,
-                                                    UINT8 ctry_code, UINT16 dl_len, UINT8 *dsc_list);
+                                                    UINT8 ctry_code, UINT16 ssr_max_lat,
+                                                    UINT16 ssr_min_tout, UINT16 dl_len,
+                                                    UINT8 *dsc_list, INT16 priority);
+
+/*******************************************************************************
+**
+** Function         btif_storage_add_device_priority
+**
+** Description      BTIF storage API - Adds the priority of remote devices-to NVRAM
+**
+** Returns          BT_STATUS_SUCCESS if the store was successful,
+**                  BT_STATUS_FAIL otherwise
+**
+*******************************************************************************/
+
+bt_status_t btif_storage_add_device_priority(bt_bdaddr_t *remote_bd_addr,
+                                                    INT16 priority);
 
 /*******************************************************************************
 **
@@ -351,4 +369,9 @@ bt_status_t btif_storage_set_remote_addr_type(bt_bdaddr_t *remote_bd_addr,
 
 bt_status_t btif_storage_get_remote_version(const bt_bdaddr_t *remote_bd_addr,
                                   bt_remote_version_t *p_ver);
+
+bt_status_t btif_storage_load_hidd(void);
+bt_status_t btif_storage_set_hidd(bt_bdaddr_t *remote_bd_addr);
+bt_status_t btif_storage_remove_hidd(bt_bdaddr_t *remote_bd_addr);
+
 #endif /* BTIF_STORAGE_H */
