@@ -103,6 +103,8 @@ enum
     BTA_DM_API_BLE_OBSERVE_FILTER_EVT,
     BTA_DM_API_BLE_ADV_PARAM_EVT,
     BTA_DM_API_BLE_SET_ADV_CONFIG_EVT,
+    BTA_DM_API_BLE_SET_SCAN_RSP_EVT,
+    BTA_DM_API_BLE_BROADCAST_EVT,
 #endif
 
 #if ( BTM_EIR_SERVER_INCLUDED == TRUE )&&( BTA_EIR_CANNED_UUID_LIST != TRUE )&&(BTA_EIR_SERVER_NUM_CUSTOM_UUID > 0)
@@ -1039,6 +1041,8 @@ extern void bta_dm_ble_observe (tBTA_DM_MSG *p_data);
 extern void bta_dm_ble_observe_with_filter(tBTA_DM_MSG *p_data);
 extern void bta_dm_ble_set_adv_params (tBTA_DM_MSG *p_data);
 extern void bta_dm_ble_set_adv_config (tBTA_DM_MSG *p_data);
+extern void bta_dm_ble_set_scan_rsp (tBTA_DM_MSG *p_data);
+extern void bta_dm_ble_broadcast (tBTA_DM_MSG *p_data);
 
 #endif
 extern void bta_dm_set_encryption(tBTA_DM_MSG *p_data);
